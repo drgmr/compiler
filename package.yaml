@@ -1,0 +1,41 @@
+name:                compiler
+version:             0.1.0.0
+github:              "edupc/compiler"
+license:             MIT
+author:              "Eduardo Pereira"
+maintainer:          "eduardopacunha@gmail.com"
+copyright:           "2018 Eduardo Pereira"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+description:         Please see the README on Github at <https://github.com/edupc/compiler#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  compiler-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - compiler
+
+tests:
+  compiler-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - compiler
